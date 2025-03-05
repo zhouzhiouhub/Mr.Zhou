@@ -7,29 +7,31 @@ require __DIR__ . '/vendor/autoload.php';
 header('Content-Type: application/json');
 session_start(); // 启用 Session 防止重复提交
 
-$response = [];
-
 // 确保是 POST 请求
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     echo json_encode(["status" => "error", "message" => "非法访问"]);
     exit;
 }
 
-// 获取表单数据并防止 XSS
+// 获取表单数据
 $name = htmlspecialchars($_POST["name"] ?? '');
-$email = htmlspecialchars($_POST["email"] ?? '');
+$email = filter_var($_POST["email"] ?? '', FILTER_SANITIZE_EMAIL);
 $message = nl2br(htmlspecialchars($_POST["message"] ?? ''));
 
-// 验证输入是否为空
+// 验证输入
 if (empty($name) || empty($email) || empty($message)) {
     echo json_encode(["status" => "error", "message" => "请填写所有字段"]);
     exit;
 }
 
+// 验证邮箱格式
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode(["status" => "error", "message" => "邮箱格式不正确"]);
+    exit;
+}
+
 // 生成唯一请求 ID，防止短时间重复提交
 $requestID = md5($name . $email . $message);
-
-// 如果 Session 里已有相同的请求，直接返回，防止重复提交
 if (isset($_SESSION['last_request']) && $_SESSION['last_request'] === $requestID) {
     echo json_encode(["status" => "error", "message" => "请勿重复提交"]);
     exit;
@@ -49,11 +51,11 @@ try {
     $mail->Host       = 'smtp.163.com'; 
     $mail->SMTPAuth   = true;
     $mail->Username   = 'zhouzhiou9588@163.com';  
-    $mail->Password   = 'DAcANtxmypaZNzYA';  
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port       = 465;
+    $mail->Password   = 'DAcANtxmypaZNzYA';  // ⚠️ 确保这里填写的是授权码！
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;  // ✅ 使用 SSL
+    $mail->Port       = 465;  // ✅ 163 邮箱的 SSL 端口
 
-    // 关闭调试模式，避免前端获取到 SMTP 输出
+    // 关闭调试模式
     $mail->SMTPDebug = 0;
     $mail->Debugoutput = 'html';
 
@@ -63,16 +65,17 @@ try {
     $mail->addReplyTo($email, $name); // 方便回复
 
     // 设置邮件标题和内容
+    $mail->isHTML(true);
     $mail->Subject = "$email";
-    $mail->Body    = "姓名: $name\n$message";
+    $mail->Body    = "$name <br>$message";
 
     // 发送邮件
     if ($mail->send()) {
         echo json_encode(["status" => "success", "message" => "留言已成功发送！"]);
     } else {
-        echo json_encode(["status" => "error", "message" => "留言发送失败: " . $mail->ErrorInfo]);
+        echo json_encode(["status" => "error", "message" => "邮件发送失败，请稍后再试"]);
     }
 } catch (Exception $e) {
-    echo json_encode(["status" => "error", "message" => "留言发送失败: " . $e->getMessage()]);
+    echo json_encode(["status" => "error", "message" => "邮件发送失败：" . $mail->ErrorInfo]);
 }
 ?>

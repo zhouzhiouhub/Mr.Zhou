@@ -3,14 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>聊天气泡留言</title>
-    <link href="./css/style.css" rel="stylesheet" type="text/css"></head>
+    <title>博客页面</title>
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
+</head>
 <body>
+    <!-- 博客主要内容 -->
+    <div class="sidebar">
+        <h3>公告</h3>
+        <p>欢迎来到我的博客！这里是公告栏。</p>
+    </div>
+    <div class="content">
+        <h2>博客内容</h2>
+        <div class="blog-post">
+            <h3>第一篇博客</h3>
+            <p>这是我的第一篇博客内容...</p>
+        </div>
+        <div class="blog-post">
+            <h3>第二篇博客</h3>
+            <p>这里是一些额外的内容...</p>
+        </div>
+    </div>
+    <div class="calendar">
+        <h3>完整日历</h3>
+        <iframe src="https://calendar.google.com/calendar/embed?src=zh.china%23holiday%40group.v.calendar.google.com&ctz=Asia%2FShanghai"></iframe>
+    </div>
 
-    <!-- 聊天气泡按钮 -->
+    <!-- 聊天气泡功能 -->
     <button id="chat-btn">💬</button>
-
-    <!-- 聊天窗口 -->
     <div id="chat-popup">
         <div id="chat-header">
             <span>留言反馈</span>
@@ -22,85 +41,10 @@
             <textarea id="message" name="message" rows="3" placeholder="请输入留言..." required></textarea>
             <button type="submit">发送</button>
         </form>
-        <p id="chat-result" style="font-size:12px; color: green;"></p>
+        <p id="chat-result"></p>
     </div>
 
-    <script>
-        // 获取元素
-        const chatBtn = document.getElementById("chat-btn");
-        const chatPopup = document.getElementById("chat-popup");
-        const closeChat = document.getElementById("close-chat");
-        const chatForm = document.getElementById("chat-form");
-        const chatResult = document.getElementById("chat-result");
-    
-        // 点击气泡显示/隐藏聊天框
-        chatBtn.addEventListener("click", () => {
-            chatPopup.style.display = (chatPopup.style.display === "block") ? "none" : "block";
-        });
-    
-        // 关闭按钮
-        closeChat.addEventListener("click", () => {
-            chatPopup.style.display = "none";
-        });
-    
-        chatForm.addEventListener("submit", function(event) {
-    event.preventDefault(); // 阻止默认提交行为
-
-    let formData = new FormData(this);
-    let sendButton = document.querySelector("button[type='submit']");
-
-    console.log("准备发送请求..."); // **调试输出**
-    
-    // 立即禁用按钮，防止多次点击
-    if (sendButton.disabled) return;
-    sendButton.disabled = true; //立即禁用按钮
-    sendButton.style.backgroundColor = "#ccc"; // 变灰色
-    sendButton.style.cursor = "not-allowed";
-
-    fetch("send_mail.php", {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log("服务器返回:", data); // **调试输出**
-        
-        if (data.status === "success") {
-            chatResult.innerHTML = "发送成功！";
-            chatResult.style.color = "green";
-
-            // 清空输入框
-            document.getElementById("name").value = "";
-            document.getElementById("email").value = "";
-            document.getElementById("message").value = "";
-
-            // 2 秒后隐藏窗口
-            setTimeout(() => {
-                chatPopup.style.display = "none";
-                chatResult.innerHTML = "";
-            }, 2000);
-        } else {
-            chatResult.innerHTML = "发送失败：" + data.message;
-            chatResult.style.color = "red";
-        }
-    })
-    .catch(error => {
-        console.log("请求失败:", error); // **调试输出**
-        chatResult.innerHTML = "发送失败，请稍后再试。";
-        chatResult.style.color = "red";
-    })
-    .finally(() => {
-        // 1 秒后恢复按钮
-        setTimeout(() => {
-            sendButton.disabled = false;
-            sendButton.style.backgroundColor = "#8E5DA9"; // 恢复颜色
-            sendButton.style.cursor = "pointer";
-        }, 2000);
-    });
-});
-
-    </script>
-    
-
+    <!-- 引入聊天功能的 JavaScript -->
+    <script src="./js/chat.js"></script>
 </body>
 </html>

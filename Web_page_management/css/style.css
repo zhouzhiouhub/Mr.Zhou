@@ -1,82 +1,160 @@
+/* ==========================================================================
+   基础样式
+   ========================================================================== */
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
 
-        /* 右下角聊天气泡按钮 */
-        #chat-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #8E5DA9; /* 气泡颜色 */
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s ease-in-out;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
-            font-size: 24px;
-        }
-        #chat-btn:hover {
-            background-color: #7A4C96;
-        }
+/* ==========================================================================
+   状态类
+   ========================================================================== */
+.disabled {
+    background-color: #ccc !important;
+    cursor: not-allowed !important;
+}
 
-        /* 聊天框 */
-        #chat-popup {
-            display: none;
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            width: 280px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            font-size: 14px;
-        }
+.success {
+    color: green;
+}
 
-        /* 头部 */
-        #chat-header {
-            display: flex;
-            justify-content: space-between;
-            font-weight: bold;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-        }
+.error {
+    color: red;
+}
 
-        /* 关闭按钮 */
-        #close-chat {
-            cursor: pointer;
-            font-size: 18px;
-            color: #777;
-        }
-        #close-chat:hover {
-            color: black;
-        }
+/* ==========================================================================
+   博客页面布局
+   ========================================================================== */
+/* 侧边栏 */
+.sidebar {
+    width: 20%;
+    background: #f4f4f4;
+    padding: 20px;
+}
 
-        /* 输入框 */
-        input, textarea {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-top: 5px;
-        }
+/* 主要内容区 */
+.content {
+    flex: 1;
+    padding: 20px;
+}
 
-        /* 发送按钮 */
-        button {
-            width: 100%;
-            background-color: #8E5DA9;
-            color: white;
-            padding: 8px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        button:hover {
-            background-color: #7A4C96;
-        }
+/* 日历区域 */
+.calendar {
+    width: 20%;
+    background: #f4f4f4;
+    padding: 20px;
+}
+
+/* 日历 iframe */
+.calendar iframe {
+    border: 0;
+    width: 100%;
+    height: 200px;
+}
+
+/* 博客文章卡片 */
+.blog-post {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* ==========================================================================
+   聊天气泡组件
+   ========================================================================== */
+/* 聊天按钮 */
+#chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #8E5DA9;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+}
+
+#chat-btn:hover {
+    background-color: #7A4C96;
+}
+
+/* 聊天窗口 */
+#chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 280px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    font-size: 14px;
+}
+
+/* 聊天窗口头部 */
+#chat-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+#close-chat {
+    cursor: pointer;
+    font-size: 18px;
+    color: #777;
+}
+
+#close-chat:hover {
+    color: black;
+}
+
+/* ==========================================================================
+   表单元素
+   ========================================================================== */
+/* 输入框通用样式 */
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+/* 按钮样式 */
+button {
+    width: 100%;
+    background-color: #8E5DA9;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #7A4C96;
+}
+
+/* 结果消息样式 */
+#chat-result {
+    font-size: 12px;
+    margin-top: 10px;
+}

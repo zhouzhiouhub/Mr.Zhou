@@ -66,8 +66,14 @@ try {
 
     // 设置邮件标题和内容
     $mail->isHTML(true);
-    $mail->Subject = "$email";
-    $mail->Body    = "$name <br>$message";
+    $mail->Subject = "来自 $name 的留言反馈";
+    $mail->Body    = "
+        <p><strong>发件人：</strong>$name</p>
+        <p><strong>回复邮箱：</strong><a href='mailto:$email'>$email</a></p>
+        <p><strong>留言内容：</strong></p>
+        <p>$message</p>
+    ";
+    $mail->AltBody = "发件人：$name\n回复邮箱：$email\n留言内容：\n$message"; // 为不支持HTML的邮件客户端提供纯文本版本
 
     // 发送邮件
     if ($mail->send()) {

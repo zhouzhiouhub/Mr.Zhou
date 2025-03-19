@@ -7,11 +7,12 @@
     <link href="./css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <!-- 博客主要内容 -->
+    <!-- 左侧侧边栏内容 -->
     <div class="sidebar">
         <h3>公告</h3>
         <p>欢迎来到我的博客！这里是公告栏。</p>
     </div>
+    <!-- 中间主要内容 -->
     <div class="content">
         <h2>博客内容</h2>
         <div class="blog-post">
@@ -23,12 +24,90 @@
             <p>这里是一些额外的内容...</p>
         </div>
     </div>
-    <div class="calendar">
-        <h3>完整日历</h3>
-        <iframe src="https://calendar.google.com/calendar/embed?src=zh.china%23holiday%40group.v.calendar.google.com&ctz=Asia%2FShanghai"></iframe>
+    <!-- /* 右侧侧边栏内容 -->
+    <div class="sidebar">
+        <!-- 显示实时时间 -->
+        <div class="simple-clock" id="simple-clock"></div>
+        <!-- 引入外部js -->
+        
+    <div class="simple-calendar">
+        <div class="simple-header">
+            <button onclick="simplePrevYear()">≪</button>
+            <button onclick="simplePrevMonth()">◄</button>
+            <span id="simple-month-year"></span>
+            <button onclick="simpleNextMonth()">►</button>
+            <button onclick="simpleNextYear()">≫</button>
+        </div>
+        <div class="simple-calendar-grid" id="simple-calendar-grid"></div>
+    </div>
+   
+    <div class="calculator" id="calculator">
+        <div class="mode-switch">
+            <span>基础模式</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="mode-toggle" onchange="toggleMode()">
+                <span class="toggle-slider"></span>
+            </label>
+            <span>高级模式</span>
+        </div>
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button onclick="appendToDisplay('(')">(</button>
+            <button onclick="appendToDisplay(')')">)</button>
+            <button class="operator" onclick="appendToDisplay('/')">/</button>
+            
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button class="operator" onclick="appendToDisplay('*')">*</button>
+            
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button class="operator" onclick="appendToDisplay('-')">-</button>
+            
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button class="operator" onclick="appendToDisplay('+')">+</button>
+            
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="backspace()">⌫</button>
+            <button class="equals" onclick="calculate()">=</button>
+        </div>
+        <div class="advanced-buttons">
+            <button class="function" onclick="calculateFunction('Math.sin')">sin</button>
+            <button class="function" onclick="calculateFunction('Math.cos')">cos</button>
+            <button class="function" onclick="calculateFunction('Math.tan')">tan</button>
+            <button class="function" onclick="calculateFunction('Math.log')">log</button>
+            <button class="function" onclick="calculateFunction('Math.log10')">log10</button>
+            
+            <button class="function" onclick="calculateFunction('Math.sqrt')">√</button>
+            <button class="function" onclick="appendToDisplay('Math.PI')">π</button>
+            <button class="function" onclick="appendToDisplay('Math.E')">e</button>
+            <button class="function" onclick="powerFunction()">x^y</button>
+            <button class="function" onclick="calculateFunction('Math.abs')">|x|</button>
+            
+            <button class="function" onclick="calculateFactorial()">n!</button>
+            <button class="function" onclick="calculatePercentage()">%</button>
+            <button class="function" onclick="calculateFunction('Math.exp')">exp</button>
+            <button class="function" onclick="calculateFunction('Math.round')">round</button>
+            <button class="function" onclick="calculateRandom()">rand</button>
+        </div>
+        <div class="history" id="history">
+            <div class="history-header">
+                <h3>计算历史</h3>
+                <button class="clear-history" onclick="clearHistory()">清空历史</button>
+            </div>
+            <div id="history-items"></div>
+        </div>
     </div>
 
-    <!-- 聊天气泡功能 -->
+  
+    </div>
+     <!-- 聊天窗口 -->
     <button id="chat-btn">💬</button>
     <div id="chat-popup">
         <div id="chat-header">
@@ -43,8 +122,10 @@
         </form>
         <p id="chat-result"></p>
     </div>
-
-    <!-- 引入聊天功能的 JavaScript -->
+    <!-- 引入外部js文件 -->
+    <script src="./js/time.js"></script>
+    <script src="./js/calendar.js"></script>
+    <script src = "./js/calculator.js"></script>
     <script src="./js/chat.js"></script>
 </body>
 </html>

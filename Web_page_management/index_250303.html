@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聊天气泡留言</title>
+    <style>
+        /* 右下角聊天气泡按钮 */
+        #chat-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #8E5DA9; /* 气泡颜色 */
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+        }
+        #chat-btn:hover {
+            background-color: #7A4C96;
+        }
+
+        /* 聊天框 */
+        #chat-popup {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 280px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        /* 头部 */
+        #chat-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* 关闭按钮 */
+        #close-chat {
+            cursor: pointer;
+            font-size: 18px;
+            color: #777;
+        }
+        #close-chat:hover {
+            color: black;
+        }
+
+        /* 输入框 */
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        /* 发送按钮 */
+        button {
+            width: 100%;
+            background-color: #8E5DA9;
+            color: white;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #7A4C96;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 聊天气泡按钮 -->
+    <button id="chat-btn">💬</button>
+
+    <!-- 聊天窗口 -->
+    <div id="chat-popup">
+        <div id="chat-header">
+            <span>留言反馈</span>
+            <span id="close-chat">&times;</span>
+        </div>
+        <form id="chat-form">
+            <input type="text" id="name" name="name" placeholder="你的名字" required>
+            <input type="email" id="email" name="email" placeholder="邮箱地址" required>
+            <textarea id="message" name="message" rows="3" placeholder="请输入留言..." required></textarea>
+            <button type="submit">发送</button>
+        </form>
+        <p id="chat-result" style="font-size:12px; color: green;"></p>
+    </div>
+
+    <script>
+        // 获取元素
+        const chatBtn = document.getElementById("chat-btn");
+        const chatPopup = document.getElementById("chat-popup");
+        const closeChat = document.getElementById("close-chat");
+        const chatForm = document.getElementById("chat-form");
+        const chatResult = document.getElementById("chat-result");
+    
+        // 点击气泡显示/隐藏聊天框
+        chatBtn.addEventListener("click", () => {
+            chatPopup.style.display = (chatPopup.style.display === "block") ? "none" : "block";
+        });
+    
+        // 关闭按钮
+        closeChat.addEventListener("click", () => {
+            chatPopup.style.display = "none";
+        });
+    
+        // 监听表单提交
+        chatForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+    
+            let formData = new FormData(this);
+    
+            fetch("send_mail.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json()) // 解析 JSON 响应
+            .then(data => {
+                chatResult.style.color = data.status === "success" ? "green" : "red";
+                chatResult.innerHTML = data.message;
+                if (data.status === "success") {
+                    chatForm.reset();
+                    setTimeout(() => { chatPopup.style.display = "none"; }, 3000); // 3秒后自动隐藏
+                }
+            })
+            .catch(error => {
+                chatResult.style.color = "red";
+                chatResult.innerHTML = "发送失败，请稍后再试。";
+            });
+        });
+    </script>
+    
+
+</body>
+</html>

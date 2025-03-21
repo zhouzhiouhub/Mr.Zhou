@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>俄罗斯方块</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="backButton">返回</button>
+    <h1>俄罗斯方块</h1>
+    <div id="container">
+        <canvas id="gameCanvas" width="300" height="600"></canvas>
+        <div id="sidebar">
+            <div id="scoreBoard">
+                <h2>分数</h2>
+                <p id="score">0</p>
+            </div>
+            <div id="nextPiece">
+                <h2>下一个方块</h2>
+                <canvas id="nextCanvas" width="120" height="120"></canvas>
+            </div>
+            <div id="difficultySelector">
+                <h3>选择难度</h3>
+                <label for="difficulty">速度：</label>
+                <input type="range" id="difficulty" min="20" max="1000" step="20" value="1000">
+                <span id="difficultyValue">1000</span> ms
+                <button id="startGameButton">开始游戏</button>
+                <button id="pauseGameButton" style="display: none;">暂停游戏</button>
+            </div>
+        </div>
+    </div>
+    <div id="controls">
+        <butid="leftButton">左移</button>
+        <button id="rotateButton">旋转</button>
+        <button id="rightButton">右移</button>
+        <button id="downButton">下移</button>
+            </div>
+    <div id="gameOverModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border: 2px solid black; text-align: center;">
+        <h2>游戏结束</h2>
+        <button id="retryButton">再来一次</button>
+        <button id="exitButton">退出游戏</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    height: 100vh;
+    justify-content: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+h3 {
+    color: black;
+}
+
+canvas {
+    background-color: #111;
+    border: 2px solid #fff;
+    background-image: linear-gradient(#222 1px, transparent 1px),
+                      linear-gradient(90deg, #222 1px, transparent 1px);
+    background-size: 30px 30px; /* 网格大小与 BLOCK_SIZE 一致 */
+}
+
+#controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+#controls button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#controls button:hover {
+    background-color: #666;
+}
+
+#backButton {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#backButton:hover {
+    background-color: #666;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#sidebar {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+#scoreBoard, #nextPiece {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#nextCanvas {
+    background-color: #111;
+    border: 2px solid #fff;
+}
+
+#difficultySelector {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    text-align: center;
+}

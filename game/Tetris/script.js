@@ -20,11 +20,12 @@ let board = Array.from({ length: ROWS }, () => Array(COLS).fill(0));
 let currentPiece = null;
 let gameOver = false;
 let score = 0;
-let gameSpeed = 1000; // 初始速度，单位为毫秒
+let gameSpeed = 500; // 初始速度，单位为毫秒
 let gameInterval = null;
 let nextPiece = null;
 let isGameRunning = false;
-const minGameSpeed = 200; // 最快速度限制
+const minGameSpeed = 20;  // 最快速度（最小延迟）
+const maxGameSpeed = 1000; // 最慢速度（最大延迟）
 const nextCanvas = document.getElementById('nextCanvas');
 const nextCtx = nextCanvas.getContext('2d');
 
@@ -101,9 +102,9 @@ function placePiece() {
     const linesCleared = clearLines();
     updateScore(linesCleared);
 
-    currentPiece = { ...nextPiece }; // 当前方块设置为预览方块
-    nextPiece = getRandomPiece();    // 生成新的预览方块
-    drawNextPiece();                 // 更新预览画布
+    currentPiece = { ...nextPiece };
+    nextPiece = getRandomPiece();
+    drawNextPiece();
 
     if (isCollision(0, 0)) {
         gameOver = true;
@@ -124,12 +125,12 @@ function clearLines() {
 
 // 更新分数
 function updateScore(linesCleared) {
-    score += linesCleared; // 每消除一行得一分
+    score += linesCleared;
     document.getElementById('score').textContent = score;
 
-    // 根据分数调整游戏速度
+    // 根据分数调整游戏速度，确保不超出最大/最小范围
     if (linesCleared > 0 && score % 10 === 0) { // 每10分加速一次
-        gameSpeed = Math.max(minGameSpeed, gameSpeed - 100); // 限制速度不低于 minGameSpeed
+        gameSpeed = Math.max(minGameSpeed, Math.min(maxGameSpeed, gameSpeed - 100));
         if (isGameRunning) {
             restartGameLoop();
         }
@@ -155,6 +156,7 @@ function gameLoop() {
     if (!gameOver && isGameRunning) {
         if (!isCollision(1, 0)) {
             currentPiece.row++;
+            console.log(`方块下降，当前速度 (延迟): ${gameSpeed}ms`); // 输出当前速度
         } else {
             placePiece();
         }
@@ -166,6 +168,7 @@ function gameLoop() {
 function restartGameLoop() {
     clearInterval(gameInterval);
     gameInterval = setInterval(gameLoop, gameSpeed);
+    console.log(`游戏循环重启，当前速度 (延迟): ${gameSpeed}ms`); // 输出重启时的速度
 }
 
 // 重置棋盘
@@ -177,11 +180,12 @@ function resetBoard() {
     drawNextPiece();
 }
 
-// 重置分数
+// 重置分数和速度
 function resetScore() {
     score = 0;
-    gameSpeed = 1000; // 重置为初始速度
+    gameSpeed = maxGameSpeed; // 重置为最慢速度
     document.getElementById('score').textContent = score;
+    
 }
 
 // 开始新游戏
@@ -317,6 +321,22 @@ document.getElementById('pauseGameButton')?.addEventListener('click', () => {
 });
 
 document.getElementById('retryButton')?.addEventListener('click', () => {
+    // 重置速度
+    gameSpeed = maxGameSpeed; // 重置为最慢速度 (1000ms)
+    
+    // 重置滑块
+    const difficultySlider = document.getElementById('difficulty');
+    if (difficultySlider) {
+        difficultySlider.value = gameSpeed; // 将滑块值同步到 gameSpeed
+    }
+    
+    // 更新显示
+    const difficultyValue = document.getElementById('difficultyValue');
+    if (difficultyValue) {
+        difficultyValue.textContent = gameSpeed; // 显示实际的 gameSpeed
+    }
+    
+    // 重启游戏
     restartGame();
 });
 
@@ -324,10 +344,13 @@ document.getElementById('exitButton')?.addEventListener('click', () => {
     window.close();
 });
 
+// 更新难度滑块逻辑，确保速度在 minGameSpeed 和 maxGameSpeed 之间
 document.getElementById('difficulty')?.addEventListener('input', (event) => {
     const value = parseInt(event.target.value);
-    gameSpeed = Math.max(minGameSpeed, value);
-    document.getElementById('difficultyValue').textContent = value;
+    gameSpeed = Math.max(minGameSpeed, Math.min(maxGameSpeed, value));
+    document.getElementById('difficultyValue').textContent = gameSpeed; // 显示实际的 gameSpeed
+    
+    console.log('游戏速度:', gameSpeed);
     if (isGameRunning) {
         restartGameLoop();
     }

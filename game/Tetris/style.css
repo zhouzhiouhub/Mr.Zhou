@@ -1,3 +1,4 @@
+/* CSS for Tetris Game */
 body {
     display: flex;
     flex-direction: column;
@@ -9,14 +10,11 @@ body {
     height: 100vh;
     justify-content: center;
 }
-
+/* Reset default margin and padding */
 h1 {
     margin-bottom: 20px;
 }
-h3 {
-    color: black;
-}
-
+/* Style for the title */
 canvas {
     background-color: #111;
     border: 2px solid #fff;
@@ -25,6 +23,7 @@ canvas {
     background-size: 30px 30px; /* 网格大小与 BLOCK_SIZE 一致 */
 }
 
+/* Style for the game canvas */
 #controls {
     margin-top: 20px;
     display: flex;
@@ -66,6 +65,7 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    margin-left: 300px;
 }
 
 #sidebar {
@@ -89,7 +89,7 @@ canvas {
 #difficultySelector {
     margin-top: 20px;
     padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
+    border: 1px solid #fff;
+    background-color: #0c0404;
     text-align: center;
 }

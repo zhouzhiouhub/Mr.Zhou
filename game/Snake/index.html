@@ -69,6 +69,9 @@
         
         #controls {
             margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             color: #666;
         }
 
@@ -102,30 +105,32 @@
         }
         
         #up-btn {
+            margin: 0;
             grid-column: 2;
             grid-row: 1;
         }
         
         #left-btn {
+            margin: 0;
             grid-column: 1;
             grid-row: 2;
         }
         
         #right-btn {
+            margin: 0;
             grid-column: 3;
             grid-row: 2;
         }
         
         #down-btn {
+            margin: 0;
             grid-column: 2;
-            grid-row: 3;
+            grid-row: 2;
         }
         
         /* Difficulty buttons styling */
         #difficulty-controls {
-            margin-top: 20px;
             display: flex;
-            justify-content: center;
             gap: 10px;
             align-items: center;
         }
@@ -161,9 +166,20 @@
     </style>
 </head>
 <body>
-    <h1>Snake Game</h1>
     <div id="score">分数: 0</div>
     <div id="high-score">历史最高分: 0</div>
+    <div id="controls">
+        <div>
+            <p>温馨提示！</p>
+            <p>使用箭头键或方向键来控制蛇</p>
+        </div>
+        <div id="difficulty-controls">
+            <p>难度: </p>
+            <button id="easy-btn" class="difficulty-btn active-difficulty">容易</button>
+            <button id="medium-btn" class="difficulty-btn">中等</button>
+            <button id="hard-btn" class="difficulty-btn">困难</button>
+        </div>
+    </div>
     <div id="game-container">
         <canvas id="game-board" width="400" height="400"></canvas>
         <div id="game-over">
@@ -172,19 +188,7 @@
             <button id="restart-button">再来一次</button>
         </div>
     </div>
-    <div id="controls">
-        <p color #ff000>温馨提示！</p>
-        <p>使用箭头键或方向键来控制蛇</p>
-        <button id="start-button">开始游戏</button>
-    </div>
-    
-    <!-- Difficulty Controls -->
-    <div id="difficulty-controls">
-        <p>难度: </p>
-        <button id="easy-btn" class="difficulty-btn active-difficulty">容易</button>
-        <button id="medium-btn" class="difficulty-btn">中等</button>
-        <button id="hard-btn" class="difficulty-btn">困难</button>
-    </div>
+    <button id="start-button">开始游戏</button>
     
     <!-- Direction Control Buttons -->
     <div id="direction-controls">
@@ -291,11 +295,11 @@
                 initGame();
                 gameRunning = true;
                 gameInterval = setInterval(gameLoop, gameSpeed);
-                startButton.textContent = 'Pause Game';
+                startButton.textContent = '暂停游戏';
             } else {
                 gameRunning = false;
                 clearInterval(gameInterval);
-                startButton.textContent = 'Resume Game';
+                startButton.textContent = '继续游戏';
             }
         }
         
@@ -422,8 +426,8 @@
         
         // Update score display
         function updateScore() {
-            scoreElement.textContent = `Score: ${score}`;
-            highScoreElement.textContent = `High Score: ${highScore}`;
+            scoreElement.textContent = `分数: ${score}`;
+            highScoreElement.textContent = `历史最高分: ${highScore}`;
         }
         
         // Game over handler
@@ -432,7 +436,7 @@
             gameRunning = false;
             finalScoreElement.textContent = score;
             gameOverElement.style.display = 'block';
-            startButton.textContent = 'Start Game';
+            startButton.textContent = '开始游戏';
 
             // Update high score if needed
             if (score > highScore) {
@@ -530,6 +534,10 @@
         }
         
         // Initial setup
+        function createGrid() {
+            // Grid creation logic if needed
+        }
+        
         initialize();
     </script>
 </body>

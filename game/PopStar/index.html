@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>消灭星星</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>消灭星星</h1>
+    
+    <!-- 分数显示区域 -->
+    <div class="score-container">
+        <div class="score-box">
+            <div>当前分数: <span id="currentScore">0</span></div>
+            <div>当前目标分数: <span id="currentTargetScore">1000</span></div>
+        </div>
+        <div class="level-box">
+            <div>当前关卡: <span id="currentLevel">1</span></div>
+        </div>
+    </div>
+    
+    <canvas id="gameCanvas" width="400" height="500"></canvas>
+    <br>
+    <button onclick="restartGame()">重新开始</button>
+    
+    <!-- 游戏结束界面 -->
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+            <h2>游戏结束</h2>
+            <p>没有可以消除的方块了！</p>
+            <p>最终得分: <span id="finalScore">0</span></p>
+            <div class="modal-buttons">
+                <button id="exitButton">结束游戏</button>
+                <button id="playAgainButton">再来一次</button>
+            </div>
+        </div>
+    </div>
+    <!-- 过关界面 -->
+    <div id="levelCompleteModal" class="modal">
+        <div class="modal-content">
+            <h2>恭喜过关！</h2>
+            <p>你的得分: <span id="levelScore">0</span></p>
+            <div>下关目标分数: <span id="nextTargetScore">3000</span></div>
+            <div class="modal-buttons">
+                <button id="nextLevelButton">下一关</button>
+                <button id="restartButton">重新开始</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -34,6 +34,12 @@
             color: #333;
         }
         
+        #high-score {
+            font-size: 20px;
+            margin: 10px 0;
+            color: #666;
+        }
+        
         #game-over {
             position: absolute;
             top: 50%;
@@ -65,7 +71,7 @@
             margin-top: 20px;
             color: #666;
         }
-        
+
         /* Direction buttons styling */
         #direction-controls {
             margin-top: 20px;
@@ -156,26 +162,28 @@
 </head>
 <body>
     <h1>Snake Game</h1>
-    <div id="score">Score: 0</div>
+    <div id="score">分数: 0</div>
+    <div id="high-score">历史最高分: 0</div>
     <div id="game-container">
         <canvas id="game-board" width="400" height="400"></canvas>
         <div id="game-over">
-            <h2>Game Over!</h2>
-            <p>Your score: <span id="final-score">0</span></p>
-            <button id="restart-button">Play Again</button>
+            <h2>游戏结束!</h2>
+            <p>您的努力积分: <span id="final-score">0</span></p>
+            <button id="restart-button">再来一次</button>
         </div>
     </div>
     <div id="controls">
-        <p>Use arrow keys or direction buttons to control the snake</p>
-        <button id="start-button">Start Game</button>
+        <p color #ff000>温馨提示！</p>
+        <p>使用箭头键或方向键来控制蛇</p>
+        <button id="start-button">开始游戏</button>
     </div>
     
     <!-- Difficulty Controls -->
     <div id="difficulty-controls">
-        <p>Difficulty: </p>
-        <button id="easy-btn" class="difficulty-btn active-difficulty">Easy</button>
-        <button id="medium-btn" class="difficulty-btn">Medium</button>
-        <button id="hard-btn" class="difficulty-btn">Hard</button>
+        <p>难度: </p>
+        <button id="easy-btn" class="difficulty-btn active-difficulty">容易</button>
+        <button id="medium-btn" class="difficulty-btn">中等</button>
+        <button id="hard-btn" class="difficulty-btn">困难</button>
     </div>
     
     <!-- Direction Control Buttons -->
@@ -196,6 +204,7 @@
         const canvas = document.getElementById('game-board');
         const ctx = canvas.getContext('2d');
         const scoreElement = document.getElementById('score');
+        const highScoreElement = document.getElementById('high-score');
         const finalScoreElement = document.getElementById('final-score');
         const gameOverElement = document.getElementById('game-over');
         const startButton = document.getElementById('start-button');
@@ -225,6 +234,7 @@
         let direction = 'right';
         let nextDirection = 'right';
         let score = 0;
+        let highScore = 0;
         let gameInterval;
         let gameSpeed = difficulties.easy; // Default to easy
         let currentDifficulty = 'easy';
@@ -413,6 +423,7 @@
         // Update score display
         function updateScore() {
             scoreElement.textContent = `Score: ${score}`;
+            highScoreElement.textContent = `High Score: ${highScore}`;
         }
         
         // Game over handler
@@ -422,6 +433,13 @@
             finalScoreElement.textContent = score;
             gameOverElement.style.display = 'block';
             startButton.textContent = 'Start Game';
+
+            // Update high score if needed
+            if (score > highScore) {
+                highScore = score;
+                saveHighScore(highScore);
+                console.log(`New high score: ${highScore}`);
+            }
         }
         
         // Direction change function
@@ -492,8 +510,27 @@
         startButton.addEventListener('click', startGame);
         restartButton.addEventListener('click', startGame);
         
-        // Initial draw
-        initGame();
+        // Initialize game and high score
+        function initialize() {
+            createGrid();
+            highScore = getHighScore();
+            updateScore();
+            initGame();
+        }
+        
+        // Fetch high score from localStorage
+        function getHighScore() {
+            const savedHighScore = localStorage.getItem('snakeHighScore');
+            return savedHighScore ? parseInt(savedHighScore) : 0;
+        }
+        
+        // Save high score to localStorage
+        function saveHighScore(score) {
+            localStorage.setItem('snakeHighScore', score);
+        }
+        
+        // Initial setup
+        initialize();
     </script>
 </body>
 </html>

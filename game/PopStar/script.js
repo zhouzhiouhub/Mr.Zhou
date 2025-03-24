@@ -11,6 +11,10 @@ let finalScoreElement, levelScoreElement, levelTargetElement;
 let currentScore = 0;
 let currentLevel = 1;
 let targetScore = 1000;
+// 监听返回按钮事件
+document.getElementById('backButton')?.addEventListener('click', () => {
+    window.history.back();
+});
 
 // 在页面加载完成后初始化DOM元素引用
 document.addEventListener("DOMContentLoaded", function() {

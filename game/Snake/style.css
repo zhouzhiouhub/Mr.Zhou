@@ -1,0 +1,179 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+#game-container {
+    display: inline-block;
+    position: relative;
+    margin-top: 20px;
+}
+
+#game-board {
+    border: 2px solid #333;
+    background-color: #222;
+}
+
+#score {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #333;
+}
+
+#high-score {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #666;
+}
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    z-index: 10;
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #666;
+}
+
+/* Direction buttons styling */
+#direction-controls {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(3, 60px);
+    gap: 5px;
+    justify-content: center;
+}
+
+.direction-btn {
+    width: 100%;
+    height: 100%;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.direction-btn:active {
+    background-color: #333;
+}
+
+#up-btn {
+    margin: 0;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#left-btn {
+    margin: 0;
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#right-btn {
+    margin: 0;
+    grid-column: 3;
+    grid-row: 2;
+}
+
+#down-btn {
+    margin: 0;
+    grid-column: 2;
+    grid-row: 2;
+}
+
+/* Difficulty buttons styling */
+#difficulty-controls {
+    margin-top: 50px;
+    display: flex;
+    gap: 10px;
+    /* align-items: center; */
+}
+#backButton {
+position: absolute;
+top: 10px;
+left: 10px;
+padding: 10px 20px;
+font-size: 14px;
+background-color: #444;
+color: #fff;
+border: none;
+cursor: pointer;
+border-radius: 5px;
+}   
+
+#backButton:hover {
+    background-color: #666;
+}
+
+.difficulty-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: #999; /* Default gray color for inactive */
+    color: white;
+}
+
+/* Active states with original colors */
+#easy-btn.active-difficulty {
+    background-color: #4CAF50; /* Green */
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+#medium-btn.active-difficulty {
+    background-color: #FFC107; /* Yellow */
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+#hard-btn.active-difficulty {
+    background-color: #F44336; /* Red */
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.startcenter
+{
+    margin-right: 10px;
+}

@@ -1,9 +1,9 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 20px;
+    font-family: Arial, sans-serif; /* 字体样式 */
+    text-align: center;             /* 文本居中 */
+    background-color: #f0f0f0;    /* 背景颜色 */
+    margin: 0;                      /* 去除默认边距 */
+    padding: 20px;                  /* 内边距 */
 }
 
 h1 {
@@ -11,148 +11,150 @@ h1 {
 }
 
 #game-container {
-    display: inline-block;
-    position: relative;
-    margin-top: 20px;
+    display: inline-block;  /* 将游戏容器居中 */
+    position: relative;     /* 使游戏容器相对定位 */
+    margin-top: 20px;       /* 添加顶部间距 */
 }
 
 #game-board {
-    border: 2px solid #333;
-    background-color: #222;
+    border: 2px solid #333; /* 边框颜色 */
+    background-color: #222; /* 背景颜色 */
 }
 
 #score {
-    font-size: 24px;
-    margin: 10px 0;
-    color: #333;
+    font-size: 24px;      /* 字体大小 */
+    margin: 10px 0;       /* 上下外边距 */
+    color: #333;        /* 字体颜色 */
 }
 
 #high-score {
-    font-size: 20px;
-    margin: 10px 0;
-    color: #666;
+    font-size: 20px;    /* 字体大小 */
+    margin: 10px 0;     /* 上下外边距 */
+    color: #666;      /* 字体颜色 */
 }
 
 #game-over {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    display: none;
-    z-index: 10;
+    position: absolute;     /* 绝对定位 */
+    top: 50%;               /* 垂直居中 */
+    left: 50%;              /* 水平居中 */
+    transform: translate(-50%, -50%);       /* 使元素居中 */
+    background-color: rgba(0, 0, 0, 0.8); /* 半透明背景颜色 */
+    color: white;                         /* 字体颜色 */
+    padding: 20px;                          /* 内边距 */
+    border-radius: 10px;                    /* 圆角边框 */
+    display: none;                          /* 默认隐藏 */
+    z-index: 10;                            /* 层级 */
 }
 
 button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px 2px;
-    cursor: pointer;
-    border-radius: 5px;
+    background-color: #4CAF50;      /* 按钮背景颜色 */
+    border: none;                     /* 去除边框 */
+    color: white;                   /* 字体颜色 */
+    padding: 10px 20px;                 /* 内边距 */
+    text-align: center;                 /* 文本居中 */
+    text-decoration: none;              /* 去除下划线 */
+    display: inline-block;              /* 内联块元素 */
+    font-size: 16px;                    /* 字体大小 */
+    margin: 10px 2px;                   /* 外边距 */
+    cursor: pointer;                    /* 鼠标指针样式 */
+    border-radius: 5px;                 /* 圆角边框 */
 }
 
 #controls {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #666;
+    margin-top: 20px;                 /* 上外边距 */
+    display: flex;                    /* 使用弹性布局 */
+    justify-content: space-between;   /* 水平分布 */
+    align-items: center;              /* 垂直居中 */
+    color: #666;                    /* 字体颜色 */
 }
 
 /* Direction buttons styling */
 #direction-controls {
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(3, 60px);
-    grid-template-rows: repeat(3, 60px);
-    gap: 5px;
-    justify-content: center;
+    margin-top: 20px;                            /* 上外边距 */
+    display: grid;                               /* 使用网格布局 */
+    grid-template-columns: repeat(3, 60px);      /* 三列布局，每列宽度60px */
+    grid-template-rows: repeat(3, 60px);          /* 三行布局，每行高度60px */
+    gap: 5px;                                     /* 网格间距 */
+    justify-content: center;                      /* 水平居中 */
 }
 
 .direction-btn {
-    width: 100%;
-    height: 100%;
-    background-color: #555;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
+    width: 100%;                                    /* 宽度100% */
+    height: 100%;                                   /* 高度100% */
+    background-color: #555;                       /* 按钮背景颜色 */
+    color: white;                                 /* 字体颜色 */
+    border: none;                                   /* 去除边框 */
+    border-radius: 5px;                             /* 圆角边框 */
+    font-size: 20px;                                /* 字体大小 */
+    display: flex;                                  /* 使用弹性布局 */
+    align-items: center;                            /* 垂直居中 */
+    justify-content: center;                        /* 水平居中 */
+    cursor: pointer;                                /* 鼠标指针样式 */                                      
+    -webkit-tap-highlight-color: transparent;       /* 去除移动端点击高亮 */
 }
 
+/* 方向按钮的悬停和活动状态 */
 .direction-btn:active {
     background-color: #333;
 }
 
+/* 方向按钮的悬停状态 */
 #up-btn {
-    margin: 0;
-    grid-column: 2;
-    grid-row: 1;
+    margin: 0;        /* 去除外边距 */
+    grid-column: 2;   /* 水平居中 */
+    grid-row: 1;      /* 垂直居中 */
 }
 
 #left-btn {
     margin: 0;
-    grid-column: 1;
-    grid-row: 2;
+    grid-column: 1;  /*指定元素在 CSS 网格布局中占据的列位置，从第 1 列开始*/
+    grid-row: 2;     /*指定元素在 CSS 网格布局中占据的行位置，从第 2 行开始*/
 }
 
 #right-btn {
     margin: 0;
-    grid-column: 3;
-    grid-row: 2;
+    grid-column: 3;  /*指定元素在 CSS 网格布局中占据的列位置，从第 3 列开始*/
+    grid-row: 2;     /*指定元素在 CSS 网格布局中占据的行位置，从第 2 行开始*/
 }
 
 #down-btn {
     margin: 0;
-    grid-column: 2;
-    grid-row: 2;
+    grid-column: 2;  /*指定元素在 CSS 网格布局中占据的列位置，从第 2 列开始*/
+    grid-row: 2;     /*指定元素在 CSS 网格布局中占据的行位置，从第 2 行开始*/
 }
 
 /* Difficulty buttons styling */
 #difficulty-controls {
-    margin-top: 50px;
-    display: flex;
-    gap: 10px;
+    margin-top: 50px;               /* 上外边距 */
+    display: flex;                 /* 使用弹性布局 */
+    gap: 10px;                     /* 间距 */
     /* align-items: center; */
 }
 #backButton {
-position: absolute;
-top: 10px;
-left: 10px;
-padding: 10px 20px;
-font-size: 14px;
-background-color: #444;
-color: #fff;
-border: none;
-cursor: pointer;
-border-radius: 5px;
+position: absolute;         /* 绝对定位 */
+top: 10px;                  /* 距离顶部10px */
+left: 10px;                 /* 距离左侧10px */
+padding: 10px 20px;         /* 内边距 */
+font-size: 14px;            /* 字体大小 */
+background-color: #444;   /* 按钮背景颜色 */
+color: #fff;              /* 字体颜色 */
+border: none;               /* 去除边框 */
+cursor: pointer;            /* 鼠标指针样式 */ 
+border-radius: 5px;         /* 圆角边框 */
 }   
 
 #backButton:hover {
-    background-color: #666;
+    background-color: #666;  /* 悬停时背景颜色 */
 }
 
 .difficulty-btn {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.2s;
-    background-color: #999; /* Default gray color for inactive */
-    color: white;
+    padding: 8px 15px;       /* 内边距 */
+    border: none;            /* 去除边框 */
+    border-radius: 5px;      /* 圆角边框 */
+    cursor: pointer;         /* 鼠标指针样式 */
+    transition: all 0.2s;    /* 过渡效果 */
+    background-color: #999; /* 默认背景颜色 */
+    color: white;           /* 字体颜色 */
 }
 
 /* Active states with original colors */
@@ -175,5 +177,5 @@ border-radius: 5px;
 }
 .startcenter
 {
-    margin-right: 10px;
+    margin-right: 10px; /* 右外边距 */
 }

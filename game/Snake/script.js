@@ -6,6 +6,7 @@ const gridCount = boardSize / gridSize;
 
 // Game elements
 const canvas = document.getElementById('game-board');
+//设置画布大小
 const ctx = canvas.getContext('2d');
 const scoreElement = document.getElementById('score');
 const highScoreElement = document.getElementById('high-score');
@@ -103,13 +104,13 @@ function startGame() {
     }
 }
 
-// Game loop
+//游戏循环
 function gameLoop() {
     update();
     draw();
 }
 
-// Update game state
+// 更新游戏状态
 function update() {
     // Update direction
     direction = nextDirection;

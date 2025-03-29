@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}首页 - 简易博客{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h1 class="mb-4">最新文章</h1>
+        
+        {% if posts %}
+            {% for post in posts %}
+                <div class="post-preview">
+                    <h2><a href="{{ url_for('view_post', post_id=post.id) }}" class="text-decoration-none">{{ post.title }}</a></h2>
+                    <div class="post-meta">
+                        <span>作者: {{ post.author.username }}</span> |
+                        <span>发布时间: {{ post.created_at.strftime('%Y-%m-%d %H:%M') }}</span>
+                    </div>
+                    <div class="post-summary">
+                        {{ post.content[:200] }}{% if post.content|length > 200 %}...{% endif %}
+                    </div>
+                    <a href="{{ url_for('view_post', post_id=post.id) }}" class="btn btn-sm btn-primary mt-2">阅读全文</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead text-center">暂无文章</p>
+        {% endif %}
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                关于博客
+            </div>
+            <div class="card-body">
+                <p>这是一个使用 Flask 搭建的简易博客系统。</p>
+                {% if 'user_id' not in session %}
+                    <p>请<a href="{{ url_for('login') }}">登录</a>或<a href="{{ url_for('register') }}">注册</a>以发布文章。</p>
+                {% else %}
+                    <a href="{{ url_for('new_post') }}" class="btn btn-primary">发布新文章</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

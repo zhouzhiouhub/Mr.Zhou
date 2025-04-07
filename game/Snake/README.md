@@ -73,6 +73,12 @@ const difficulties = {
 - 添加障碍物和特殊食物
 - 实现游戏难度的自定义设置
 
+## 作者信息
+
+- 作者：Mr.Zhou
+- 联系方式：zhouzhiou9588@163.com
+- 项目地址：https://github.com/zhouzhiouhub/Mr.Zhou/tree/main/game/Snake
+
 ---
 
-最后更新：2025年3月29日
+最后更新：2025年4月7日

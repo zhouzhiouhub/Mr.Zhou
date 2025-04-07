@@ -114,7 +114,8 @@ A: 目前不支持修改用户信息，将在后续版本中添加此功能。
 
 ## 联系与支持
 
-如有任何问题或建议，请联系系统管理员。
+项目主页：[https://github.com/zhouzhiouhub/Mr.Zhou/tree/main/lrean/Flask]
+- 电子邮件：zhouzhiou9588@163.com
 
 ---
 

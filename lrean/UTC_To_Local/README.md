@@ -49,3 +49,10 @@ UTC时间是全球通用的标准时间，可以避免因时区不同造成的�
 - Firefox
 - Safari
 - Edge
+
+## 作者信息
+
+- 作者：Mr.Zhou
+- 联系方式：zhouzhiou9588@163.com
+- 项目地址：https://github.com/zhouzhiouhub/Mr.Zhou/tree/main/lrean/UTC_To_Local
+- 最后更新：2025年4月7日

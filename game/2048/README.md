@@ -44,9 +44,11 @@
 
 本项目采用MIT许可证。详情请见LICENSE文件。
 
-## 作者
+## 作者信息
 
-Mr.Zhou
+- 作者：Mr.Zhou
+- 联系方式：zhouzhiou9588@163.com
+- 项目地址：https://github.com/zhouzhiouhub/Mr.Zhou/tree/main/game/2048
 
 ## 最后更新
 

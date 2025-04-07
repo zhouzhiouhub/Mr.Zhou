@@ -37,12 +37,15 @@
 - 游戏核心：Canvas绘图
 - 交互设计：动态界面反馈
 
-## 作者
+## 作者信息
 
-Mr.Zhou
+- 作者：Mr.Zhou
+- 联系方式：zhouzhiou9588@163.com
+- 项目地址：https://github.com/zhouzhiouhub/Mr.Zhou/tree/main/game/PopStar
 
 ## 更新日志
 
+- 2025.04.07：更新文档，添加联系方式
 - 2025.03.29：初始版本发布
 
 ## 许可证

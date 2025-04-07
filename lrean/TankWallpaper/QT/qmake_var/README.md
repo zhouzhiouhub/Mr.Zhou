@@ -77,5 +77,5 @@ make (在Windows上使用nmake或mingw32-make)
 
 如有问题或建议，请通过以下方式联系：
 
-- 项目主页：[https://github.com/yourusername/TankWallpaper](https://github.com/yourusername/TankWallpaper)
-- 电子邮件：your.email@example.com
+- 项目主页：[https://github.com/zhouzhiouhub/Mr.Zhou/tree/main/lrean/TankWallpaper/QT/qmake_var]
+- 电子邮件：zhouzhiou9588@163.com

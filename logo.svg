@@ -1,0 +1,64 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 定义渐变色 -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F3460;stop-opacity:1" /> <!-- 深蓝 -->
+      <stop offset="100%" style="stop-color:#FF5722;stop-opacity:1" /> <!-- 亮橙 -->
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0F3460;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF5722;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- 背景（可选） -->
+  <rect width="400" height="200" fill="none" />
+
+  <!-- 抽象几何图形 - 对称结构 -->
+  <g transform="translate(200, 90) scale(0.8)">
+    <!-- 主体几何图形 -->
+    <path
+      d="M 0,-50
+         L 40,30
+         L -40,30
+         Z"
+      fill="url(#gradient)"
+      stroke="none"
+    />
+    <!-- 负形设计元素 -->
+    <circle cx="0" cy="0" r="15" fill="#FFFFFF" />
+    <path
+      d="M -40,30
+         C -30,10 30,10 40,30"
+      fill="none"
+      stroke="#FFFFFF"
+      stroke-width="5"
+      stroke-linecap="round"
+    />
+
+  <!-- 公司名称：未来科技 -->
+  <text
+    x="200"
+    y="170"
+    font-family="Arial, sans-serif"
+    font-size="24"
+    font-weight="bold"
+    fill="#ffffff"
+    text-anchor="middle"
+  >
+    未来科技
+  </text>
+  <!-- 英文名称（可选）：FutureTech -->
+  <text
+    x="200"
+    y="190"
+    font-family="'Montserrat', 'Segoe UI', sans-serif"
+    font-size="18"
+    font-weight="600"
+    fill="#6D28D9"
+    text-anchor="middle"
+    letter-spacing="1.5"
+  >
+    <tspan>Future</tspan><tspan fill="#A855F7">Tech</tspan>
+  </text>
+</svg>

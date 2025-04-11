@@ -3,117 +3,554 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>博客页面</title>
+    <title>文艺生活 | 博客空间</title>
     <link href="./css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-     <!-- 左侧侧边栏内容 -->
-     <div class="sidebar">
-        <h3>公告</h3>
-        <p>欢迎来到我的博客！这里是公告栏。</p>
+    <!-- 页面顶部导航 -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="site-title">墨韵阁</h1>
+            <p class="site-slogan">品味时光，感受文字的温度</p>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home" class="nav-link active" data-section="home-section"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="#essays" class="nav-link" data-section="essays-section"><i class="fas fa-pen-fancy"></i> 随笔</a></li>
+                    <li><a href="#bookshelf" class="nav-link" data-section="bookshelf-section"><i class="fas fa-book-open"></i> 书架</a></li>
+                    <li><a href="#gallery" class="nav-link" data-section="gallery-section"><i class="fas fa-camera-retro"></i> 图集</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-        <h3>友情链接</h3>
-        <ul>
-            <li><a href="https://zhouzhiou.xyz:8443/game/index.html">休息一下</a></li>
-        </ul>
-    </div>
-    <!-- 中间主要内容 -->
-    <div class="content">
-        <h2>博客内容</h2>
-        <div class="blog-post">
-            <h3>第一篇博客</h3>
-            <p>这是我的第一篇博客内容...</p>
-        </div>
-        <div class="blog-post">
-            <h3>第二篇博客</h3>
-            <p>这里是一些额外的内容...</p>
-        </div>
-    </div>
-    <!-- /* 右侧侧边栏内容 -->
-    <div class="sidebar">
-        <!-- 显示实时时间 -->
-        <div class="simple-clock" id="simple-clock"></div>
-        <!-- 引入外部js -->
-        
-    <div class="simple-calendar">
-        <div class="simple-header">
-            <button onclick="simplePrevYear()">≪</button>
-            <button onclick="simplePrevMonth()">◄</button>
-            <span id="simple-month-year"></span>
-            <button onclick="simpleNextMonth()">►</button>
-            <button onclick="simpleNextYear()">≫</button>
-        </div>
-        <div class="simple-calendar-grid" id="simple-calendar-grid"></div>
-    </div>
-   
-    <div class="calculator" id="calculator">
-        <div class="mode-switch">
-            <span>基础模式</span>
-            <label class="toggle-switch">
-                <input type="checkbox" id="mode-toggle" onchange="toggleMode()">
-                <span class="toggle-slider"></span>
-            </label>
-            <span>高级模式</span>
-        </div>
-        <div class="display" id="display">0</div>
-        <div class="buttons">
-            <button class="clear" onclick="clearDisplay()">C</button>
-            <button onclick="appendToDisplay('(')">(</button>
-            <button onclick="appendToDisplay(')')">)</button>
-            <button class="operator" onclick="appendToDisplay('/')">/</button>
-            
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button class="operator" onclick="appendToDisplay('*')">*</button>
-            
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
-            <button class="operator" onclick="appendToDisplay('-')">-</button>
-            
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button class="operator" onclick="appendToDisplay('+')">+</button>
-            
-            <button onclick="appendToDisplay('0')">0</button>
-            <button onclick="appendToDisplay('.')">.</button>
-            <button onclick="backspace()">⌫</button>
-            <button class="equals" onclick="calculate()">=</button>
-        </div>
-        <div class="advanced-buttons">
-            <button class="function" onclick="calculateFunction('Math.sin')">sin</button>
-            <button class="function" onclick="calculateFunction('Math.cos')">cos</button>
-            <button class="function" onclick="calculateFunction('Math.tan')">tan</button>
-            <button class="function" onclick="calculateFunction('Math.log')">log</button>
-            <button class="function" onclick="calculateFunction('Math.log10')">log10</button>
-            
-            <button class="function" onclick="calculateFunction('Math.sqrt')">√</button>
-            <button class="function" onclick="appendToDisplay('Math.PI')">π</button>
-            <button class="function" onclick="appendToDisplay('Math.E')">e</button>
-            <button class="function" onclick="powerFunction()">x^y</button>
-            <button class="function" onclick="calculateFunction('Math.abs')">|x|</button>
-            
-            <button class="function" onclick="calculateFactorial()">n!</button>
-            <button class="function" onclick="calculatePercentage()">%</button>
-            <button class="function" onclick="calculateFunction('Math.exp')">exp</button>
-            <button class="function" onclick="calculateFunction('Math.round')">round</button>
-            <button class="function" onclick="calculateRandom()">rand</button>
-        </div>
-        <div class="history" id="history">
-            <div class="history-header">
-                <h3>计算历史</h3>
-                <button class="clear-history" onclick="clearHistory()">清空历史</button>
+    <!-- 主要内容区域 -->
+    <div class="main-container">
+        <!-- 左侧侧边栏内容 -->
+        <div class="sidebar left-sidebar">            <div class="sidebar-profile">
+                <div class="profile-image" id="profile-image">
+                    <img src="./Logo.svg" alt="博主头像" id="profile-avatar">
+                    <div class="profile-image-overlay">
+                        <i class="fas fa-camera"></i>
+                        <span>更换头像</span>
+                    </div>
+                </div>
+                <h3 class="profile-name">墨客小主</h3>
+                <p class="profile-bio">寻找文字间的光影，思考时光中的意义</p>
+                <div class="profile-social">
+                    <a href="https://weibo.com/u/7432526497" target="_blank" class="social-icon" title="访问微博"><i class="fab fa-weibo"></i></a>
+                    <a href="#" class="social-icon wechat-icon" title="查看微信二维码"><i class="fab fa-weixin"></i></a>
+                    <a href="https://github.com/zhouzhiouhub" target="_blank" class="social-icon" title="访问GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://blog.csdn.net/qq_59002866" target="_blank" class="social-icon" title="访问CSDN博客"><i class="fab fa-cuttlefish"></i></a>
+                </div>
+                <!-- 微信二维码弹窗 -->
+                <div id="wechat-qrcode" class="qrcode-popup">
+                    <div class="qrcode-content">
+                        <span class="close-qrcode">&times;</span>
+                        <h4>扫描关注我的微信</h4>
+                        <img src="https://via.placeholder.com/200" alt="微信二维码">
+                    </div>
+                </div>
             </div>
-            <div id="history-items"></div>
+
+            <div class="sidebar-section">
+                <h3 class="section-title">小贴士</h3>
+                <div class="notice-board">
+                    <p>欢迎来到我的文艺小天地，这里记录生活的美好与感悟。</p>
+                    <div class="quote">
+                        <p>「生活不止眼前的苟且，还有诗和远方。」</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="section-title">友情链接</h3>
+                <ul class="link-list">
+                    <li><a href="https://zhouzhiou.xyz:8443/game/index.html"><i class="fas fa-gamepad"></i> 休息一下</a></li>
+                    <li><a href="#"><i class="fas fa-coffee"></i> 咖啡时光</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> 读书笔记</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 中间主要内容 -->
+        <div class="content">
+            <!-- 首页部分 -->
+            <div id="home-section" class="content-section active">
+                <div class="content-filter">
+                    <span class="filter-label">分类：</span>
+                    <a href="#" class="filter-item active">全部</a>
+                    <a href="#" class="filter-item">散文</a>
+                    <a href="#" class="filter-item">诗歌</a>
+                    <a href="#" class="filter-item">摄影</a>
+                    <a href="#" class="filter-item">随想</a>
+                </div>
+                
+                <div class="blog-post">
+                    <div class="post-date">
+                        <span class="day">15</span>
+                        <span class="month">三月</span>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">春日漫步，听花开的声音</h3>
+                        <div class="post-meta">
+                            <span class="post-category"><i class="fas fa-bookmark"></i> 散文</span>
+                            <span class="post-views"><i class="fas fa-eye"></i> 328</span>
+                            <span class="post-comments"><i class="fas fa-comment"></i> 25</span>
+                        </div>
+                        <p class="post-excerpt">春天悄然而至，樱花轻舞，柳絮飘飞。漫步于小道，感受微风拂面，仿佛能听见花开的声音。这是一场与春天的对话，是一次心灵的净化之旅...</p>
+                        <a href="#" class="read-more" data-article-id="1">阅读全文 <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <div class="post-date">
+                        <span class="day">28</span>
+                        <span class="month">二月</span>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">雨巷中的邂逅</h3>
+                        <div class="post-meta">
+                            <span class="post-category"><i class="fas fa-bookmark"></i> 诗歌</span>
+                            <span class="post-views"><i class="fas fa-eye"></i> 215</span>
+                            <span class="post-comments"><i class="fas fa-comment"></i> 18</span>
+                        </div>
+                        <p class="post-excerpt">丁香一样的姑娘在雨巷中撑着油纸伞，她的眼神像是诉说着千年的孤寂。雨滴敲打着青石板，奏响了一曲思念的乐章。我站在巷口，看着远去的背影...</p>
+                        <a href="#" class="read-more" data-article-id="2">阅读全文 <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <div class="post-date">
+                        <span class="day">10</span>
+                        <span class="month">一月</span>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">冬日咖啡馆的午后时光</h3>
+                        <div class="post-meta">
+                            <span class="post-category"><i class="fas fa-bookmark"></i> 随想</span>
+                            <span class="post-views"><i class="fas fa-eye"></i> 189</span>
+                            <span class="post-comments"><i class="fas fa-comment"></i> 12</span>
+                        </div>
+                        <p class="post-excerpt">窗外是纷扬的雪花，窗内是温暖的咖啡香。手捧一本村上春树的小说，任思绪随着钢琴曲飘荡。冬日的午后，最适合在咖啡馆里静静品味生活...</p>
+                        <a href="#" class="read-more" data-article-id="3">阅读全文 <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="pagination">
+                    <a href="#" class="page-item"><i class="fas fa-angle-double-left"></i></a>
+                    <a href="#" class="page-item active">1</a>
+                    <a href="#" class="page-item">2</a>
+                    <a href="#" class="page-item">3</a>
+                    <a href="#" class="page-item"><i class="fas fa-angle-double-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- 随笔部分 -->
+            <div id="essays-section" class="content-section">
+                <h2 class="section-header">随笔集</h2>
+                <p class="section-description">记录生活点滴，分享内心感悟</p>
+                
+                <div class="essays-list">
+                    <div class="essay-card">
+                        <div class="essay-header">
+                            <h3>夏日星空</h3>
+                            <span class="essay-date">2023年7月21日</span>
+                        </div>
+                        <p class="essay-content">夏夜的星空总是格外璀璨，仰望苍穹，仿佛能看到整个宇宙的奥秘。在城市的喧嚣中，我们常常忘记了头顶这片美丽的风景...</p>
+                        <a href="#" class="read-more">继续阅读 <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                    
+                    <div class="essay-card">
+                        <div class="essay-header">
+                            <h3>关于阅读的思考</h3>
+                            <span class="essay-date">2023年6月15日</span>
+                        </div>
+                        <p class="essay-content">在这个信息爆炸的时代，我们被各种短视频、快讯包围，深度阅读似乎成了一种奢侈。然而，正是在书籍的海洋中，我们才能真正找到思想的宁静...</p>
+                        <a href="#" class="read-more">继续阅读 <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                    
+                    <div class="essay-card">
+                        <div class="essay-header">
+                            <h3>城市漫步</h3>
+                            <span class="essay-date">2023年5月30日</span>
+                        </div>
+                        <p class="essay-content">周末的午后，没有特定的目的地，只是漫无目的地在城市中游走。老街区的砖墙上爬满了常春藤，街角的咖啡馆飘出阵阵香气...</p>
+                        <a href="#" class="read-more">继续阅读 <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 书架部分 -->
+            <div id="bookshelf-section" class="content-section">
+                <h2 class="section-header">我的书架</h2>
+                <p class="section-description">分享我的阅读世界，每一本书都是一次心灵的旅行</p>
+                
+                <div class="books-filter">
+                    <span>类别：</span>
+                    <a href="#" class="book-filter active" data-category="all">全部</a>
+                    <a href="#" class="book-filter" data-category="literature">文学</a>
+                    <a href="#" class="book-filter" data-category="philosophy">哲学</a>
+                    <a href="#" class="book-filter" data-category="history">历史</a>
+                    <a href="#" class="book-filter" data-category="science">科学</a>
+                </div>
+                
+                <div class="books-grid">
+                    <div class="book-item" data-category="literature">
+                        <div class="book-cover">
+                            <img src="https://img9.doubanio.com/view/subject/s/public/s27237850.jpg" alt="百年孤独">
+                            <div class="book-hover">
+                                <div class="book-actions">
+                                    <a href="#" class="book-action preview-book"><i class="fas fa-eye"></i> 预览</a>
+                                    <a href="#" class="book-action download-book"><i class="fas fa-download"></i> 下载</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h4 class="book-title">百年孤独</h4>
+                            <p class="book-author">加西亚·马尔克斯</p>
+                            <div class="book-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-item" data-category="literature">
+                        <div class="book-cover">
+                            <img src="https://img9.doubanio.com/view/subject/s/public/s1070222.jpg" alt="围城">
+                            <div class="book-hover">
+                                <div class="book-actions">
+                                    <a href="#" class="book-action preview-book"><i class="fas fa-eye"></i> 预览</a>
+                                    <a href="#" class="book-action download-book"><i class="fas fa-download"></i> 下载</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h4 class="book-title">围城</h4>
+                            <p class="book-author">钱钟书</p>
+                            <div class="book-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-item" data-category="philosophy">
+                        <div class="book-cover">
+                            <img src="https://img1.doubanio.com/view/subject/s/public/s2347562.jpg" alt="苏菲的世界">
+                            <div class="book-hover">
+                                <div class="book-actions">
+                                    <a href="#" class="book-action preview-book"><i class="fas fa-eye"></i> 预览</a>
+                                    <a href="#" class="book-action download-book"><i class="fas fa-download"></i> 下载</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h4 class="book-title">苏菲的世界</h4>
+                            <p class="book-author">乔斯坦·贾德</p>
+                            <div class="book-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-item" data-category="science">
+                        <div class="book-cover">
+                            <img src="https://img9.doubanio.com/view/subject/s/public/s29634484.jpg" alt="时间简史">
+                            <div class="book-hover">
+                                <div class="book-actions">
+                                    <a href="#" class="book-action preview-book"><i class="fas fa-eye"></i> 预览</a>
+                                    <a href="#" class="book-action download-book"><i class="fas fa-download"></i> 下载</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h4 class="book-title">时间简史</h4>
+                            <p class="book-author">斯蒂芬·霍金</p>
+                            <div class="book-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-item" data-category="history">
+                        <div class="book-cover">
+                            <img src="https://img1.doubanio.com/view/subject/s/public/s1800355.jpg" alt="明朝那些事儿">
+                            <div class="book-hover">
+                                <div class="book-actions">
+                                    <a href="#" class="book-action preview-book"><i class="fas fa-eye"></i> 预览</a>
+                                    <a href="#" class="book-action download-book"><i class="fas fa-download"></i> 下载</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h4 class="book-title">明朝那些事儿</h4>
+                            <p class="book-author">当年明月</p>
+                            <div class="book-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-item" data-category="literature">
+                        <div class="book-cover">
+                            <img src="https://img2.doubanio.com/view/subject/s/public/s29053580.jpg" alt="活着">
+                            <div class="book-hover">
+                                <div class="book-actions">
+                                    <a href="#" class="book-action preview-book"><i class="fas fa-eye"></i> 预览</a>
+                                    <a href="#" class="book-action download-book"><i class="fas fa-download"></i> 下载</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h4 class="book-title">活着</h4>
+                            <p class="book-author">余华</p>
+                            <div class="book-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 图集部分 -->
+            <div id="gallery-section" class="content-section">
+                <h2 class="section-header">影像记忆</h2>
+                <p class="section-description">用镜头记录美好瞬间，分享我眼中的世界</p>
+                
+                <div class="gallery-filter">
+                    <span>分类：</span>
+                    <a href="#" class="gallery-filter-item active" data-category="all">全部</a>
+                    <a href="#" class="gallery-filter-item" data-category="landscape">风景</a>
+                    <a href="#" class="gallery-filter-item" data-category="portrait">人像</a>
+                    <a href="#" class="gallery-filter-item" data-category="daily">日常</a>
+                    <a href="#" class="gallery-filter-item" data-category="travel">旅行</a>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="landscape">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="山水风景">
+                        <div class="gallery-info">
+                            <h4>山间晨雾</h4>
+                            <p>摄于青城山，2023年春</p>
+                            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="travel">
+                        <img src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb" alt="古镇小巷">
+                        <div class="gallery-info">
+                            <h4>雨巷</h4>
+                            <p>摄于乌镇，2022年冬</p>
+                            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="daily">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="咖啡时光">
+                        <div class="gallery-info">
+                            <h4>午后时光</h4>
+                            <p>咖啡馆的小角落，2023年秋</p>
+                            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="portrait">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9" alt="人像摄影">
+                        <div class="gallery-info">
+                            <h4>光影之间</h4>
+                            <p>窗边的思考者，2023年冬</p>
+                            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="landscape">
+                        <img src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f" alt="星空">
+                        <div class="gallery-info">
+                            <h4>银河之夜</h4>
+                            <p>摄于西藏，2022年夏</p>
+                            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="daily">
+                        <img src="https://images.unsplash.com/photo-1516541196182-6bdb0516ed27" alt="阅读">
+                        <div class="gallery-info">
+                            <h4>书香</h4>
+                            <p>图书馆的一角，2023年春</p>
+                            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="travel">
+                        <img src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd" alt="旅行">
+                        <div class="gallery-info">
+                            <h4>远方</h4>
+                            <p>旅途中的一瞥，2023年夏</p>
+                            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="portrait">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" alt="人像">
+                        <div class="gallery-info">
+                            <h4>回眸</h4>
+                            <p>偶然的转身，2022年秋</p>
+                            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧侧边栏内容 -->
+        <div class="sidebar right-sidebar">
+            <!-- 搜索框 -->
+            <div class="sidebar-section">
+                <div class="search-box">
+                    <input type="text" placeholder="搜索文章...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <!-- 显示实时时间 -->
+            <div class="sidebar-section">
+                <h3 class="section-title">现在时间</h3>
+                <div class="simple-clock" id="simple-clock"></div>
+            </div>
+            
+            <!-- 日历 -->
+            <div class="sidebar-section">
+                <h3 class="section-title">日历</h3>
+                <div class="simple-calendar">
+                    <div class="simple-header">
+                        <button onclick="simplePrevYear()">≪</button>
+                        <button onclick="simplePrevMonth()">◄</button>
+                        <span id="simple-month-year"></span>
+                        <button onclick="simpleNextMonth()">►</button>
+                        <button onclick="simpleNextYear()">≫</button>
+                    </div>
+                    <div class="simple-calendar-grid" id="simple-calendar-grid"></div>
+                </div>
+            </div>
+            
+            <!-- 热门标签 -->
+            <div class="sidebar-section">
+                <h3 class="section-title">热门标签</h3>
+                <div class="tag-cloud">
+                    <a href="#" class="tag">文学</a>
+                    <a href="#" class="tag">旅行</a>
+                    <a href="#" class="tag">摄影</a>
+                    <a href="#" class="tag">美食</a>
+                    <a href="#" class="tag">电影</a>
+                    <a href="#" class="tag">音乐</a>
+                    <a href="#" class="tag">咖啡</a>
+                    <a href="#" class="tag">阅读</a>
+                    <a href="#" class="tag">生活</a>
+                </div>
+            </div>
+            
+            <!-- 计算器 -->
+            <div class="calculator" id="calculator">
+                <div class="mode-switch">
+                    <span>基础模式</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="mode-toggle" onchange="toggleMode()">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span>高级模式</span>
+                </div>
+                <div class="display" id="display">0</div>
+                <div class="buttons">
+                    <button class="clear" onclick="clearDisplay()">C</button>
+                    <button onclick="appendToDisplay('(')">(</button>
+                    <button onclick="appendToDisplay(')')">)</button>
+                    <button class="operator" onclick="appendToDisplay('/')">/</button>
+                    
+                    <button onclick="appendToDisplay('7')">7</button>
+                    <button onclick="appendToDisplay('8')">8</button>
+                    <button onclick="appendToDisplay('9')">9</button>
+                    <button class="operator" onclick="appendToDisplay('*')">*</button>
+                    
+                    <button onclick="appendToDisplay('4')">4</button>
+                    <button onclick="appendToDisplay('5')">5</button>
+                    <button onclick="appendToDisplay('6')">6</button>
+                    <button class="operator" onclick="appendToDisplay('-')">-</button>
+                    
+                    <button onclick="appendToDisplay('1')">1</button>
+                    <button onclick="appendToDisplay('2')">2</button>
+                    <button onclick="appendToDisplay('3')">3</button>
+                    <button class="operator" onclick="appendToDisplay('+')">+</button>
+                    
+                    <button onclick="appendToDisplay('0')">0</button>
+                    <button onclick="appendToDisplay('.')">.</button>
+                    <button onclick="backspace()">⌫</button>
+                    <button class="equals" onclick="calculate()">=</button>
+                </div>
+                <div class="advanced-buttons">
+                    <button class="function" onclick="calculateFunction('Math.sin')">sin</button>
+                    <button class="function" onclick="calculateFunction('Math.cos')">cos</button>
+                    <button class="function" onclick="calculateFunction('Math.tan')">tan</button>
+                    <button class="function" onclick="calculateFunction('Math.log')">log</button>
+                    <button class="function" onclick="calculateFunction('Math.log10')">log10</button>
+                    
+                    <button class="function" onclick="calculateFunction('Math.sqrt')">√</button>
+                    <button class="function" onclick="appendToDisplay('Math.PI')">π</button>
+                    <button class="function" onclick="appendToDisplay('Math.E')">e</button>
+                    <button class="function" onclick="powerFunction()">x^y</button>
+                    <button class="function" onclick="calculateFunction('Math.abs')">|x|</button>
+                    
+                    <button class="function" onclick="calculateFactorial()">n!</button>
+                    <button class="function" onclick="calculatePercentage()">%</button>
+                    <button class="function" onclick="calculateFunction('Math.exp')">exp</button>
+                    <button class="function" onclick="calculateFunction('Math.round')">round</button>
+                    <button class="function" onclick="calculateRandom()">rand</button>
+                </div>
+                <div class="history" id="history">
+                    <div class="history-header">
+                        <h3>计算历史</h3>
+                        <button class="clear-history" onclick="clearHistory()">清空历史</button>
+                    </div>
+                    <div id="history-items"></div>
+                </div>
+            </div>
         </div>
     </div>
 
-  
-    </div>
-     <!-- 聊天窗口 -->
-    <button id="chat-btn">💬</button>
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>墨韵阁 &copy; 2023 - 感受文字的温度</p>
+            <p class="footer-quote">「人生就是寻找那些会打动你的瞬间」</p>
+        </div>
+    </footer>
+
+    <!-- 聊天窗口 -->
+    <button id="chat-btn"><i class="fas fa-comments"></i></button>
     <div id="chat-popup">
         <div id="chat-header">
             <span>留言反馈</span>
@@ -127,10 +564,93 @@
         </form>
         <p id="chat-result"></p>
     </div>
+    
+    <!-- 上传头像弹窗 -->
+    <div id="avatar-upload-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>更换头像</h3>
+            <div class="upload-area">
+                <input type="file" id="avatar-upload" accept="image/*">
+                <label for="avatar-upload" class="upload-button">
+                    <i class="fas fa-cloud-upload-alt"></i> 选择图片
+                </label>
+                <div id="avatar-preview">
+                    <img id="preview-img" src="" alt="预览">
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button id="confirm-upload" class="confirm-button">确定</button>
+                <button id="cancel-upload" class="cancel-button">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 文章预览弹窗 -->
+    <div id="article-preview-modal" class="modal">
+        <div class="modal-content article-preview-content">
+            <span class="close-modal">&times;</span>
+            <div class="article-header">
+                <h2 id="preview-title"></h2>
+                <div class="preview-meta">
+                    <span id="preview-date"></span>
+                    <span id="preview-category"></span>
+                </div>
+            </div>
+            <div class="article-body" id="preview-content">
+            </div>
+            <div class="modal-buttons">
+                <button id="read-full-article" class="confirm-button">阅读全文</button>
+                <button class="cancel-button close-preview">关闭</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 图片查看器 -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-image" id="lightbox-image">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+        <div class="lightbox-close" id="lightbox-close"><i class="fas fa-times"></i></div>
+        <div class="lightbox-prev" id="lightbox-prev"><i class="fas fa-chevron-left"></i></div>
+        <div class="lightbox-next" id="lightbox-next"><i class="fas fa-chevron-right"></i></div>
+    </div>
+    
+    <!-- 书籍预览模态框 -->
+    <div id="book-preview-modal" class="book-preview-modal">
+        <div class="book-preview-content">
+            <div class="book-preview-cover">
+                <img src="" alt="" id="book-preview-image">
+                <div class="book-preview-rating" id="book-preview-rating"></div>
+            </div>
+            <div class="book-preview-info">
+                <h2 class="book-preview-title" id="book-preview-title"></h2>
+                <div class="book-preview-meta">
+                    <span><i class="fas fa-user"></i> <span id="book-preview-author"></span></span>
+                    <span><i class="fas fa-book"></i> <span id="book-preview-category"></span></span>
+                    <span><i class="fas fa-calendar-alt"></i> <span id="book-preview-year">2023</span></span>
+                </div>
+                <div class="book-preview-description" id="book-preview-description">
+                </div>
+                <div class="book-preview-actions">
+                    <a href="#" class="book-preview-action book-preview-download" id="book-preview-download">
+                        <i class="fas fa-download"></i> 下载电子书
+                    </a>
+                    <a href="#" class="book-preview-action book-preview-close" id="book-preview-close">
+                        <i class="fas fa-times"></i> 关闭
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- 引入外部js文件 -->
     <script src="./js/time.js"></script>
     <script src="./js/calendar.js"></script>
-    <script src = "./js/calculator.js"></script>
+    <script src="./js/calculator.js"></script>
     <script src="./js/chat.js"></script>
+    <script src="./js/profile.js"></script>
+    <script src="./js/navigation.js"></script>
 </body>
 </html>

@@ -1,0 +1,66 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define gradients -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F3460;stop-opacity:1" /> <!-- Deep Blue -->
+      <stop offset="100%" style="stop-color:#FF5722;stop-opacity:1" /> <!-- Bright Orange -->
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0F3460;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF5722;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background (optional) -->
+  <rect width="400" height="400" fill="white" opacity="0" rx="10" ry="10" />
+
+  <!-- Center point of the SVG -->
+  <g transform="translate(200, 200)">
+    <!-- Abstract geometric shape - symmetrical structure -->
+    <g transform="scale(1.0)">
+      <!-- Main geometric element -->
+      <path
+        d="M 0,-50
+           L 50,30
+           L -50,30
+           Z"
+        fill="url(#gradient)"
+        stroke="none"
+      />
+      <!-- Negative space design elements -->
+      <circle cx="0" cy="0" r="15" fill="#FFFFFF" />
+      <path
+        d="M -45,30
+           C -30,0 30,0 45,30"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="5"
+        stroke-linecap="round"
+      />
+    </g>
+
+    <!-- Circular text path -->
+    <path id="textPath" 
+          d="M0,-120 A120,120 0 1,1 -0.1,-120 A120,120 0 1,0 0,-120" 
+          fill="none" 
+          stroke="none" />
+    
+    <!-- Text on path -->
+    <text dy="-5" fill="#0F3460" font-family="'Montserrat', sans-serif" font-size="18" font-weight="600" letter-spacing="8">
+      <textPath xlink:href="#textPath" startOffset="0%">
+        F U T U R E • T E C H • I N N O V A T I O N •
+      </textPath>
+    </text>
+    
+    <!-- Tagline below the logo -->
+    <text y="70" 
+          font-family="'Montserrat', sans-serif" 
+          font-size="12" 
+          font-style="italic" 
+          fill="#666666" 
+          text-anchor="middle" 
+          letter-spacing="1">
+      SINCE 2025
+    </text>
+  </g>
+</svg>

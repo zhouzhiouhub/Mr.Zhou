@@ -1,0 +1,81 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 定义渐变色 -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F3460;stop-opacity:1" /> <!-- 深蓝 -->
+      <stop offset="100%" style="stop-color:#FF5722;stop-opacity:1" /> <!-- 亮橙 -->
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0F3460;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF5722;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- 背景（可选） -->
+  <rect width="400" height="200" fill="white" opacity="0.1" rx="10" ry="10" />
+
+  <!-- 抽象几何图形 - 对称结构 -->
+  <g transform="translate(200, 80) scale(0.8)">
+    <!-- 主体几何图形 -->
+    <path
+      d="M 0,-50
+         L 50,30
+         L -50,30
+         Z"
+      fill="url(#gradient)"
+      stroke="none"
+    />
+    <!-- 负形设计元素 -->
+    <circle cx="0" cy="0" r="15" fill="#FFFFFF" />
+    <path
+      d="M -45,30
+         C -30,0 30,0 45,30"
+      fill="none"
+      stroke="#FFFFFF"
+      stroke-width="5"
+      stroke-linecap="round"
+    />
+  </g>
+
+  <!-- 公司名称：未来科技 -->
+  <text
+    x="200"
+    y="150"
+    font-family="'Source Sans Pro', 'Microsoft YaHei', sans-serif"
+    font-size="26"
+    font-weight="700"
+    fill="url(#textGradient)"
+    text-anchor="middle"
+    letter-spacing="2"
+  >
+    未来科技
+  </text>
+  
+  <!-- 英文名称：FutureTech -->
+  <text
+    x="200"
+    y="180"
+    font-family="'Montserrat', 'Segoe UI', sans-serif"
+    font-size="18"
+    font-weight="600"
+    fill="#0F3460"
+    text-anchor="middle"
+    letter-spacing="2"
+  >
+    <tspan>FUTURE</tspan><tspan fill="#FF5722">TECH</tspan>
+  </text>
+  
+  <!-- 品牌标语 -->
+  <text
+    x="200"
+    y="195"
+    font-family="'Montserrat', sans-serif"
+    font-size="10"
+    font-style="italic"
+    fill="#666666"
+    text-anchor="middle"
+    letter-spacing="1"
+  >
+    科技创新 · 持续成长
+  </text>
+</svg>

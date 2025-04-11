@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <!-- 星辰大海主题渐变和滤镜 -->
+  <defs>
+    <!-- 深邃宇宙背景渐变 -->
+    <linearGradient id="cosmosGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#000B27"/>
+      <stop offset="30%" style="stop-color:#041E42"/>
+      <stop offset="70%" style="stop-color:#0A2351"/>
+      <stop offset="100%" style="stop-color:#0F3460"/>
+    </linearGradient>
+    
+    <!-- 海洋深处渐变 -->
+    <linearGradient id="oceanDepthGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F3460"/>
+      <stop offset="40%" style="stop-color:#104E8B"/>
+      <stop offset="70%" style="stop-color:#1874CD"/>
+      <stop offset="100%" style="stop-color:#1E90FF"/>
+    </linearGradient>
+    
+    <!-- 星云渐变 -->
+    <radialGradient id="nebulaGradient" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#9370DB" stop-opacity="0.8"/>
+      <stop offset="40%" style="stop-color:#8A2BE2" stop-opacity="0.6"/>
+      <stop offset="70%" style="stop-color:#4B0082" stop-opacity="0.4"/>
+      <stop offset="100%" style="stop-color:#000B27" stop-opacity="0"/>
+    </radialGradient>
+    
+    <!-- 星光效果 -->
+    <filter id="starGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="glow"/>
+      <feComposite in="SourceGraphic" in2="glow" operator="over"/>
+    </filter>
+    
+    <!-- 海浪波动效果 -->
+    <filter id="waveEffect" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2" seed="10" result="turbulence"/>
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="15" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    
+    <!-- 银河璀璨效果 -->
+    <filter id="galaxyEffect" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008" numOctaves="3" seed="5" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 8 -4" result="coloredNoise"/>
+      <feComposite in="SourceGraphic" in2="coloredNoise" operator="arithmetic" k1="0" k2="0.5" k3="0.5" k4="0"/>
+    </filter>
+    
+    <!-- 星星图案 -->
+    <pattern id="starPattern" patternUnits="userSpaceOnUse" width="200" height="200">
+      <circle cx="20" cy="20" r="1" fill="#FFFFFF" opacity="0.9"/>
+      <circle cx="50" cy="50" r="0.7" fill="#FFFFFF" opacity="0.7"/>
+      <circle cx="80" cy="10" r="1.2" fill="#FFFFFF" opacity="0.8"/>
+      <circle cx="110" cy="60" r="0.6" fill="#FFFFFF" opacity="0.6"/>
+      <circle cx="140" cy="30" r="0.9" fill="#FFFFFF" opacity="0.8"/>
+      <circle cx="170" cy="70" r="1.1" fill="#FFFFFF" opacity="0.7"/>
+      <circle cx="30" cy="95" r="0.8" fill="#FFFFFF" opacity="0.8"/>
+      <circle cx="65" cy="135" r="1.0" fill="#FFFFFF" opacity="0.9"/>
+      <circle cx="100" cy="175" r="0.7" fill="#FFFFFF" opacity="0.7"/>
+      <circle cx="155" cy="115" r="1.2" fill="#FFFFFF" opacity="0.8"/>
+      <circle cx="190" cy="145" r="0.6" fill="#FFFFFF" opacity="0.6"/>
+    </pattern>
+    
+    <!-- 流星拖尾效果 -->
+    <linearGradient id="shootingStarGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="40%" style="stop-color:#FFFFFF" stop-opacity="0.6"/>
+      <stop offset="100%" style="stop-color:#FFFFFF" stop-opacity="0"/>
+    </linearGradient>  </defs>
+  
+  <!-- 背景 - 深邃宇宙 -->
+  <rect width="800" height="500" fill="url(#cosmosGradient)"/>
+  
+  <!-- 背景 - 海洋深处 -->
+  <rect y="500" width="800" height="300" fill="url(#oceanDepthGradient)"/>
+  
+  <!-- 星空背景 -->
+  <rect width="800" height="500" fill="url(#starPattern)" opacity="0.8"/>
+  
+  <!-- 海平面交界处 -->
+  <path d="M0,500 C100,480 200,520 300,490 C400,460 500,510 600,480 C700,450 800,490 800,500 L800,510 L0,510 Z" 
+        fill="#1E90FF" opacity="0.3" filter="url(#waveEffect)"/>
+  
+  <!-- 月亮 -->
+  <defs>
+    <radialGradient id="moonGradient" cx="40%" cy="40%" r="60%" fx="40%" fy="40%">
+      <stop offset="0%" style="stop-color:#FFFEF9"/>
+      <stop offset="30%" style="stop-color:#FFFEF0"/>
+      <stop offset="70%" style="stop-color:#F9F5E3"/>
+      <stop offset="100%" style="stop-color:#F4EED1"/>
+    </radialGradient>
+    
+    <!-- 月球表面纹理效果 -->
+    <filter id="moonTexture" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="5" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0" result="coloredNoise"/>
+      <feComposite in="SourceGraphic" in2="coloredNoise" operator="arithmetic" k1="0" k2="1" k3="0.3" k4="0"/>
+    </filter>
+  </defs>
+  
+  <!-- 月亮主体 -->
+  <circle cx="180" cy="180" r="80" fill="url(#moonGradient)" filter="url(#moonTexture)"/>
+  
+  <!-- 月球环形山 -->
+  <circle cx="150" cy="150" r="10" fill="none" stroke="#E5DDBF" stroke-width="1" opacity="0.3"/>
+  <circle cx="190" cy="170" r="15" fill="none" stroke="#E5DDBF" stroke-width="1" opacity="0.4"/>
+  <circle cx="170" cy="200" r="12" fill="none" stroke="#E5DDBF" stroke-width="1" opacity="0.3"/>
+  
+  <!-- 月光在海面的倒影 -->
+  <ellipse cx="180" cy="650" rx="100" ry="50" fill="#FFFEF9" opacity="0.2" filter="url(#waveEffect)"/>
+  
+  <!-- 海中倒影的星星 -->
+  <g opacity="0.4">
+    <rect y="500" width="800" height="300" fill="url(#starPattern)" opacity="0.3"/>
+  </g>
+  
+  <!-- 明亮的星星 -->
+  <circle cx="100" cy="100" r="2" fill="#FFFFFF" filter="url(#starGlow)"/>
+  <circle cx="300" cy="150" r="2.5" fill="#FFFFFF" filter="url(#starGlow)"/>
+  <circle cx="500" cy="80" r="3" fill="#FFFFFF" filter="url(#starGlow)"/>
+  <circle cx="650" cy="200" r="2" fill="#FFFFFF" filter="url(#starGlow)"/>
+  <circle cx="750" cy="120" r="2.5" fill="#FFFFFF" filter="url(#starGlow)"/>
+  <circle cx="200" cy="350" r="3" fill="#FFFFFF" filter="url(#starGlow)"/>
+  <circle cx="400" cy="250" r="2" fill="#FFFFFF" filter="url(#starGlow)"/>
+  <circle cx="600" cy="400" r="2.5" fill="#FFFFFF" filter="url(#starGlow)"/>
+  
+    <!-- 流星 -->
+  <g transform="translate(150, 120) rotate(-30)">
+    <path d="M0,0 L60,0" stroke="url(#shootingStarGradient)" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="2" fill="#FFFFFF" filter="url(#starGlow)"/>
+  </g>
+  
+  <g transform="translate(550, 180) rotate(-15)">
+    <path d="M0,0 L80,0" stroke="url(#shootingStarGradient)" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="2.5" fill="#FFFFFF" filter="url(#starGlow)"/>
+  </g>
+    
+  <!-- 月相变化光影 -->
+  <path d="M180,100 Q230,180 180,260" fill="none" stroke="#E5DDBF" stroke-width="0.5" opacity="0.3"/>
+  
+  <!-- 海洋波浪 - 更柔和自然的效果 -->
+  <!-- 最远层波浪 -->
+  <path d="M0,535 C70,537 140,533 210,537 C280,541 350,538 420,535 C490,532 560,536 630,538 C700,540 750,536 800,535" 
+        fill="none" stroke="#1E90FF" stroke-width="0.5" opacity="0.2"/>
+  
+  <!-- 中层波浪 -->
+  <path d="M0,560 C60,557 120,561 180,559 C240,557 300,554 360,557 C420,560 480,559 540,557 C600,555 660,558 720,560 C780,562 800,559 800,558" 
+        fill="none" stroke="#1E90FF" stroke-width="0.4" opacity="0.25"/>
+  
+  <!-- 近层波浪组 - 更细微的多重线条 -->
+  <path d="M0,590 C50,588 100,591 150,589 C200,587 250,586 300,588 C350,590 400,589 450,587 C500,585 550,587 600,589 C650,591 700,590 750,588 C775,587 800,588 800,589" 
+        fill="none" stroke="#1E90FF" stroke-width="0.3" opacity="0.3"/>
+        
+  <path d="M0,610 C40,612 80,610 120,612 C160,614 200,613 240,611 C280,609 320,610 360,612 C400,614 440,613 480,611 C520,609 560,610 600,612 C640,614 680,613 720,611 C760,609 800,610 800,612" 
+        fill="none" stroke="#1E90FF" stroke-width="0.3" opacity="0.25"/>
+        
+  <path d="M0,630 C45,628 90,631 135,629 C180,627 225,628 270,630 C315,632 360,631 405,629 C450,627 495,628 540,630 C585,632 630,631 675,629 C720,627 765,628 800,630" 
+        fill="none" stroke="#1E90FF" stroke-width="0.3" opacity="0.2"/>
+  
+  <!-- 渐变波浪区域 - 轻微的填充效果 -->
+  <path d="M0,650 L800,650 L800,500 C750,505 700,502 650,504 C600,506 550,505 500,503 C450,501 400,502 350,504 C300,506 250,505 200,503 C150,501 100,502 50,504 C25,505 0,503 0,502 Z" 
+        fill="#1E90FF" opacity="0.03"/>
+  
+  <!-- 远处的山峰剪影 - 多层次设计 -->
+  <!-- 最远层山峰 -->
+  <path d="M-50,500 L50,450 L100,470 L150,440 L200,460 L250,430 L300,455 L350,435 L400,450 L450,430 L500,445 L550,425 L600,450 L650,430 L700,455 L750,440 L800,450 L850,500" 
+        fill="#000000" opacity="0.3"/>
+  
+  <!-- 中距离山峰 -->
+  <path d="M-50,500 L0,440 L50,470 L100,430 L150,455 L200,435 L250,460 L300,420 L350,450 L400,435 L450,455 L500,425 L600,465 L650,420 L750,455 L850,500" 
+        fill="#000000" opacity="0.5"/>
+    <!-- 近距离山峰 -->
+  <path d="M-50,500 L50,420 L100,450 L150,400 L200,450 L300,420 L350,460 L400,410 L450,455 L550,415 L650,450 L700,410 L800,460 L850,500" 
+        fill="#000000" opacity="0.7"/>
+</svg>

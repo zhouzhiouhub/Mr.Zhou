@@ -11,6 +11,9 @@
 - 作者：Mr.Zhou
 - 联系方式：zhouzhiou9588@163.com
 - 项目地址：https://github.com/zhouzhiouhub/Mr.Zhou/tree/main
+- 微博：[https://weibo.com/u/7432526497](https://weibo.com/u/7432526497)
+- CSDN博客：[https://blog.csdn.net/qq_59002866](https://blog.csdn.net/qq_59002866?type=blog)
+- GitHub：[https://github.com/zhouzhiouhub/Web](https://github.com/zhouzhiouhub/Web)
 
 ## 项目导航
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZHOUZHIOU - 设备选择</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="logo">ZHOUZHIOU</div>
+    </header>
+
+    <!-- 主内容区域：设备选择 -->
+    <main class="device-selection">
+        <h2>选择设备</h2>
+        <div class="device-list">
+            <div class="device-card" onclick="selectDevice('COM16 (ZH11)')">
+                <h3>COM16</h3>
+                <p>设备型号: ZH11</p>
+            </div>
+            <div class="device-card" onclick="selectDevice('COM17 (ZH22)')">
+                <h3>COM17</h3>
+                <p>设备型号: ZH22</p>
+            </div>
+            <div class="device-card" onclick="selectDevice('COM18 (ZH33)')">
+                <h3>COM18</h3>
+                <p>设备型号: ZH33</p>
+            </div>
+            <div class="device-card" onclick="selectDevice('COM19 (ZH44)')">
+                <h3>COM19</h3>
+                <p>设备型号: ZH44</p>
+            </div>
+            <div class="device-card" onclick="selectDevice('COM20 (ZH55)')">
+                <h3>COM20</h3>
+                <p>设备型号: ZH55</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function selectDevice(device) {
+            // 跳转到功能选择页面，并传递设备信息
+            window.location.href = `control.html?device=${encodeURIComponent(device)}`;
+        }
+    </script>
+</body>
+</html>

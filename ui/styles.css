@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    background: #222;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ff0066;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff0066;
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    background: #333;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.nav-btn:hover, .nav-btn.active {
+    background: #ff0066;
+}
+
+.return-btn {
+    background: #555;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.return-btn:hover {
+    background: #ff4444;
+}
+
+.sidebar {
+    width: 250px;
+    background: #333;
+    padding: 20px;
+    position: fixed;
+    top: 62px;
+    bottom: 40px;
+    overflow-y: auto;
+}
+
+.sidebar h3 {
+    margin: 10px 0;
+    color: #ff0066;
+}
+
+.sidebar p, .sidebar label {
+    margin: 5px 0;
+}
+
+.main-content {
+    margin-left: 270px;
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.mode-content {
+    display: none;
+}
+
+.mode-content.active {
+    display: block;
+}
+
+.sub-modes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.sub-mode-card {
+    background: #444;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.sub-mode-card:hover {
+    background: #ff0066;
+}
+
+select, input[type="color"], input[type="range"] {
+    margin: 10px 0;
+    padding: 5px;
+}
+
+.footer {
+    background: #222;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid #ff0066;
+}
+
+/* 设备选择页面样式 */
+.device-selection {
+    padding: 20px;
+    text-align: center;
+}
+
+.device-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.device-card {
+    background: #444;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 200px;
+    text-align: center;
+}
+
+.device-card:hover {
+    background: #ff0066;
+}
+
+.device-card h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.device-card p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+/* 灯光方向选择样式 */
+.direction-control {
+    margin-bottom: 20px;
+}
+
+.direction-control h4 {
+    margin: 0 0 10px;
+    color: #ff0066;
+}
+
+.direction-select {
+    display: flex;
+    gap: 20px;
+}
+
+.direction-select label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.direction-select select {
+    background: #444;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* 速度调节样式 */
+.speed-control {
+    margin-top: 10px;
+}
+
+.speed-control label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.speed-control input[type="range"] {
+    width: 100%;
+}
+
+/* 高阶模式样式 */
+.advanced-mode {
+    margin-top: 10px;
+}
+
+.advanced-mode label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#advanced-settings {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#advanced-settings label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#advanced-settings input[type="range"] {
+    width: 100%;
+}

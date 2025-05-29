@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>前后端对话</title>
+</head>
+<body>
+    <h2>和后端聊天</h2>
+    <input type="text" id="input" placeholder="输入内容">
+    <button onclick="talk()">发送</button>
+    <p id="response"></p>
+
+    <script>
+        function talk() {
+            const msg = document.getElementById("input").value;
+            fetch(`/chat?msg=${encodeURIComponent(msg)}`) // 使用 GET 请求 通过 URL 传递参数
+                .then(res => res.text())
+                .then(text => document.getElementById("response").innerText = text);
+        }
+    </script>
+</body>
+</html>

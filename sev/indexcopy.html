@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>前后端对话</title>
+</head>
+<body>
+  <h2>对话窗口</h2>
+  <input id="message" type="text" placeholder="说点什么...">
+  <button onclick="sendMessage()">发送</button>
+
+  <pre id="chat"></pre>
+
+  <script>
+    function sendMessage() // 发送消息函数
+    {
+      const input = document.getElementById('message');
+      const userText = input.value;
+      console.log(userText);
+      input.value = '';
+
+      fetch('http://localhost:8080/chat', // 使用 POST 请求
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: userText
+      })
+      .then(response => response.text())
+      .then(reply => {
+        const chat = document.getElementById('chat');
+        chat.textContent += `前端：${userText}\n后端：${reply}\n\n`;
+      });
+    }
+  </script>
+</body>
+</html>
